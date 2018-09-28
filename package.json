@@ -1,0 +1,92 @@
+{
+  "name": "mws-restaurant",
+  "version": "0.0.1",
+  "description": "Sample Project PWA Restaurant for presentation and training Google Developer Kejar 2018 batch 1",
+  "main": "index.html",
+  "main-server": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "yarn format && lint-staged",
+    "start": "yarn clean && yarn build:dev && cross-env FORCE_COLOR=true live-server --entry-file='./dist' --host=localhost --cors",
+    "format": "prettier --single-quote --trailing-comma es5 --write '**/*.js' 'server/*/!(node_modules)/**/*.js'",
+    "debug": "node debug app.js",
+    "server": "node ./server/app.js",
+    "build": "yarn clean && webpack --config config/webpack.config.prod",
+    "build:dev": "webpack --config config/webpack.config.dev",
+    "watch": "yarn build:dev --watch",
+    "clean": "rimraf dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lidan86/PWA_Restaurant.git"
+  },
+  "keywords": [
+    "mws",
+    "udacity",
+    "google",
+    "restaurant",
+    "app",
+    "nmpegetis"
+  ],
+  "author": "nmpegetis",
+  "linkedIn": "https://www.linkedin.com/in/maulidan-yulianto/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lidan86/PWA_Restaurant/issues"
+  },
+  "homepage": "https://github.com/lidan86/PWA_Restaurant#readme",
+  "lint-staged": {
+    "**/{.,src, bin, js, css, server}/**/*.{js,css}": [
+      "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
+    ],
+    "*.js": [
+      "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
+    ],
+    "yarn.lock": [
+      "git rm --cached"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^8.0.0-beta.4",
+    "babel-preset-env": "^2.0.0-alpha.20",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "compression-webpack-plugin": "^1.1.11",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "lint-staged": "^6.1.0",
+    "live-server": "^1.2.0",
+    "prettier": "^1.13.5",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.22.1",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-hot-middleware": "^2.22.3"
+  },
+  "dependencies": {
+    "idb": "^2.1.3",
+    "imagemin": "^5.3.1",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "imagemin-webpack-plugin": "^2.2.0",
+    "include-all": "^1.0.0",
+    "install": "^0.12.1",
+    "mapbox-gl": "^0.46.0",
+    "rc": "1.0.1",
+    "sails": "^0.12.13",
+    "sails-disk": "~0.10.9"
+  }
+}
